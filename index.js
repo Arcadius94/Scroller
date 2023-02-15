@@ -8,7 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
   let isThrottlet = false; */
 
   // console.log([...sections]);
-  document.addEventListener("mousewheel", scroller.listenScroll); /*{
+  document.addEventListener("wheel", (event) =>
+    scroller.listenScroll(event)
+  ); /*{
      if (isThrottlet) return;
     isThrottlet = true;
     setTimeout(() => (isThrottlet = false), 1000);

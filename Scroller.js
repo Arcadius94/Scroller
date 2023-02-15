@@ -21,14 +21,14 @@ class Scroller {
     const isVisible = elemTop >= 0 && elemBottom <= window.innerHeight;
     return isVisible;
   }
-  listenScroll = (e) => {
+  listenScroll(e) {
     if (this.isThrottlet) return;
     this.isThrottlet = true;
     setTimeout(() => (this.isThrottlet = false), 1000);
 
-    const direction = e.wheelDelta < 0 ? 1 : -1;
+    const direction = e.deltaY > 0 ? 1 : -1;
     this.scroll(direction);
-  };
+  }
   scroll(direction) {
     if (direction === 1) {
       const isLastSection =
@@ -50,7 +50,7 @@ class Scroller {
     });
   }
 
-  drawNavigation = () => {
+  drawNavigation() {
     this.navigationContainer = document.createElement("aside");
     this.navigationContainer.setAttribute("class", "scroller__navigation");
     const list = document.createElement("ul");
@@ -66,9 +66,9 @@ class Scroller {
     this.navigationContainer.appendChild(list);
     document.body.appendChild(this.navigationContainer);
     this.selectActiveNavItem();
-  };
+  }
 
-  selectActiveNavItem = () => {
+  selectActiveNavItem() {
     if (this.navigationContainer) {
       const navigationItems = this.navigationContainer.querySelectorAll("li");
       navigationItems.forEach((item, index) => {
@@ -79,5 +79,5 @@ class Scroller {
         }
       });
     }
-  };
+  }
 }
