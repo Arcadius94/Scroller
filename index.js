@@ -1,25 +1,27 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const scroller = new Scroller((id = "root"));
+  // console.log(scroller);
   // console.log("Hello world!");
-  const rootElement = document.getElementById("root");
+  /*   const rootElement = document.getElementById("root");
   const sections = document.querySelectorAll("section");
   let currentSectionIndex = 0;
-  let isThrottlet = false;
+  let isThrottlet = false; */
 
   // console.log([...sections]);
-  document.addEventListener("mousewheel", function (e) {
-    if (isThrottlet) return;
+  document.addEventListener("mousewheel", scroller.listenScroll); /*{
+     if (isThrottlet) return;
     isThrottlet = true;
     setTimeout(() => (isThrottlet = false), 1000);
 
     const direction = e.wheelDelta < 0 ? 1 : -1;
 
     scroll(direction);
-
+ 
     // console.log(currentSectionIndex);
-  });
+  });*/
 
   // add Single-responsibility principle SRP
-  function scroll(direction) {
+  /* function scroll(direction) {
     if (direction === 1) {
       const isLastSection = currentSectionIndex === sections.length - 1;
       if (isLastSection) return;
@@ -36,5 +38,5 @@ document.addEventListener("DOMContentLoaded", function () {
       behavior: "smooth",
       block: "start",
     });
-  }
+  } */
 });
