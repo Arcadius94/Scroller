@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("swipeUp", () => scroller.scroll(1));
   document.addEventListener("swipeDown", () => scroller.scroll(-1));
   document.addEventListener("keydown", (event) => {
-    console.log(event.keyCode);
     switch (event.keyCode) {
       case 40:
         return scroller.scroll(1);
