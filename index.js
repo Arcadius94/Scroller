@@ -8,9 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
   let isThrottlet = false; */
 
   // console.log([...sections]);
-  document.addEventListener("wheel", (event) =>
-    scroller.listenScroll(event)
-  ); /*{
+  document.addEventListener("wheel", (event) => scroller.listenScroll(event));
+  document.addEventListener("swipeUp", () => scroller.scroll(1));
+  document.addEventListener("swipeDown", () => scroller.scroll(-1));
+
+  /*{
      if (isThrottlet) return;
     isThrottlet = true;
     setTimeout(() => (isThrottlet = false), 1000);
